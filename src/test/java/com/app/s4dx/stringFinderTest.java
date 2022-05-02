@@ -6,44 +6,52 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import jdk.swing.interop.SwingInterOpUtils;
 import org.junit.jupiter.api.Test;
 
 class stringFinderTest {
 
     @Test
     void find() {
-        String[] testArray = { "Ani", "Sam", " Joe" };
+        String[] testArray = {"Ani", "Sam", " Joe"};
         stringFinder finder = new stringFinder(testArray);
         List<String> list1 = Arrays.asList("Sam");
 
         assertEquals(list1, finder.find("sma"));
     }
+
+    // method to run 50000 instance of stringfinder with simple array of strings
     @Test
     void TestFinder50000instance() {
-        String[] testArray = { "Ani", "Sam", " Joe" };
+        String[] testArray = {"Ani", "Sam", " Joe"};
         for (int i = 0; i < 50000; i++) {
 
-        stringFinder finder = new stringFinder(testArray);
-        List<String> list1 = Arrays.asList("Sam");
+//            System.out.println("instance number " + i);
 
-        assertEquals(list1, finder.find("sma"));}
+            stringFinder finder = new stringFinder(testArray);
+            List<String> list1 = Arrays.asList("Sam");
+
+            assertEquals(list1, finder.find("sma"));
+        }
     }
+
+    // call  method to run with array of 50000  string
     @Test
     void TestFinder50000() {
-        testFinderbigarry(50000);
+        testFinderbigarry(50000, "lxv");
     }
 
-    void testFinderbigarry(int arrLength) {
+    // method to run with large init array
+    void testFinderbigarry(int arrLength, String strToFind) {
         String[] testArray = new String[arrLength];
         for (int i = 0; i < arrLength; i++) {
             testArray[i] = randomAlphanumeric();
         }
 
         stringFinder finder = new stringFinder(testArray);
-        System.out.println(finder.find("lwz"));
+        System.out.println(finder.find(strToFind));
     }
 
+    // method to generate rando string from a..z  and random length from 1..9 this will influnce the perfermonce we can create initial array of strings
     public String randomAlphanumeric() {
         Random random = new Random();
         int randomNum = random.nextInt((9 - 1) + 1) + 1;

@@ -16,6 +16,7 @@ public class stringFinder {
     public List<String> find(String myStr) {
         final int strLenth = myStr.length();
         myStr = sortString(myStr);
+        // arraylist contains the output
         List<String> result = new ArrayList<String>();
         for (String s : this.arrayOfstrings) {
             if (strLenth == s.length()) {
@@ -29,7 +30,7 @@ public class stringFinder {
         return result;
 
     }
-
+// transform the input string to lowercase string  and sort it from a..z
     public String sortString(String myStr) {
         myStr = myStr.toLowerCase();
         char[] chars = myStr.toCharArray();
