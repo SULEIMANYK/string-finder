@@ -3,7 +3,7 @@
 ### maven
 ### java 17
 
-# how to run the solutions
+# How to run the solution
 ## open up the project folder in the terminal
 ### mvn clean install -DskipTests
 ### mvn clean test
